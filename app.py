@@ -2,60 +2,27 @@ import streamlit as st
 import json
 from datetime import datetime
 
-# ✅ Apply theme settings dynamically (like config.toml)
+# ✅ Set custom theme directly from app.py
 st.set_page_config(
     page_title="🌾 Schemes & Subsidy Auto-Match",
     page_icon="🌱",
-    layout="centered",
+    layout="centered",  # or "wide"
 )
 
-# ✅ Custom CSS to match [theme] config
+# Custom CSS for theme (works like config.toml)
 st.markdown(
     """
     <style>
-    /* Global background and text */
-    body, .stApp {
+    body {
         background-color: #f2efdeff;
         color: #3a2f1e;
         font-family: 'sans-serif';
     }
-
-    /* Make markdown and JSON text follow theme */
+    .stApp {
+        background-color: #f2efdeff;
+    }
     .stMarkdown, .stJson {
-        color: #3a2f1e !important;
-    }
-
-    /* Style selectbox (dropdown) */
-    div[data-baseweb="select"] > div {
-        background-color: #ffffff !important; /* secondaryBackgroundColor */
-        color: #3a2f1e !important;
-        border: 1px solid #d3d3d3;
-        border-radius: 8px;
-    }
-
-    /* Style dropdown menu */
-    div[data-baseweb="popover"] {
-        background-color: #ffffff !important;
-        color: #3a2f1e !important;
-    }
-
-    /* Style buttons to use primaryColor */
-    button[kind="primary"] {
-        background-color: #6b4e16 !important;
-        color: white !important;
-        border-radius: 8px;
-    }
-
-    /* Success + Warning boxes to match theme */
-    .stSuccess {
-        background-color: #e8e3d9 !important;
-        border-left: 5px solid #6b4e16 !important;
-        color: #3a2f1e !important;
-    }
-    .stWarning {
-        background-color: #fff8e1 !important;
-        border-left: 5px solid #ffb300 !important;
-        color: #3a2f1e !important;
+        color: #3a2f1e;
     }
     </style>
     """,
@@ -96,7 +63,12 @@ st.json(farmer)
 
 # Show matching schemes
 st.subheader("✅ Eligible Schemes")
-matches
+matches = match_schemes(farmer)
 
+if matches:
+    for m in matches:
+        st.success(m)
+else:
+    st.warning("No matching schemes found.")
 
 
