@@ -52,6 +52,12 @@ st.markdown(
         color: #000000 !important;
         font-weight: bold;
     }
+
+    label[data-baseweb="label"] {
+    color: #000000 !important;
+    font-weight: bold;
+}
+
     </style>
     """,
     unsafe_allow_html=True
@@ -98,6 +104,7 @@ if matches:
         st.success(m)
 else:
     st.warning("No matching schemes found.")
+
 
 
 
