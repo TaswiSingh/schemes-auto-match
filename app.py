@@ -2,6 +2,33 @@ import streamlit as st
 import json
 from datetime import datetime
 
+# ✅ Set custom theme directly from app.py
+st.set_page_config(
+    page_title="🌾 Schemes & Subsidy Auto-Match",
+    page_icon="🌱",
+    layout="centered",  # or "wide"
+)
+
+# Custom CSS for theme (works like config.toml)
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #f2efdeff;
+        color: #3a2f1e;
+        font-family: 'sans-serif';
+    }
+    .stApp {
+        background-color: #f2efdeff;
+    }
+    .stMarkdown, .stJson {
+        color: #3a2f1e;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Load farmers and schemes
 with open("farmers.json", "r") as f:
     farmers = json.load(f)
@@ -43,4 +70,3 @@ if matches:
         st.success(m)
 else:
     st.warning("No matching schemes found.")
-
