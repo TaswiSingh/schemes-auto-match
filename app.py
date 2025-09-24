@@ -27,7 +27,7 @@ st.markdown(
     /* Make dropdown (selectbox) white with black text */
     div[data-baseweb="select"] > div {
         background-color: #ffffff !important;
-        color: #000000 !important;
+        color: #000000 !important;  /* selected text color */
         border: 1px solid #d3d3d3;
         border-radius: 8px;
     }
@@ -53,15 +53,15 @@ st.markdown(
         font-weight: bold;
     }
 
-    label[data-baseweb="label"] {
-    color: #000000 !important;
-    font-weight: bold;
-}
-
+    /* Make selected dropdown text black */
+    div[data-baseweb="select"] span {
+        color: #000000 !important;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 # Load farmers and schemes
 with open("farmers.json", "r") as f:
@@ -104,6 +104,7 @@ if matches:
         st.success(m)
 else:
     st.warning("No matching schemes found.")
+
 
 
 
