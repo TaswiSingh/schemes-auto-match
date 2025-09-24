@@ -2,51 +2,65 @@ import streamlit as st
 import json
 from datetime import datetime
 
-# ✅ Set custom theme directly from app.py
+# ✅ Apply theme settings dynamically (like config.toml)
 st.set_page_config(
     page_title="🌾 Schemes & Subsidy Auto-Match",
     page_icon="🌱",
-    layout="centered",  # or "wide"
+    layout="centered",
 )
 
+# ✅ Custom CSS to match [theme] config
 st.markdown(
     """
     <style>
-    /* Set global text color to black */
-    body {
+    /* Global background and text */
+    body, .stApp {
         background-color: #f2efdeff;
-        color: #000000;
+        color: #3a2f1e;
         font-family: 'sans-serif';
     }
 
-    /* Make sure the main app container also uses the same background */
-    .stApp {
-        background-color: #f2efdeff;
-    }
-
-    /* Ensure markdown text & JSON text appear in black */
+    /* Make markdown and JSON text follow theme */
     .stMarkdown, .stJson {
-        color: #000000 !important;
+        color: #3a2f1e !important;
     }
 
-    /* Style the dropdown (selectbox) */
+    /* Style selectbox (dropdown) */
     div[data-baseweb="select"] > div {
-        background-color: #ffffff !important; /* white background */
-        color: #000000 !important; /* black text */
-        border-radius: 8px; /* rounded edges for a modern look */
-        border: 1px solid #ccc; /* light border */
+        background-color: #ffffff !important; /* secondaryBackgroundColor */
+        color: #3a2f1e !important;
+        border: 1px solid #d3d3d3;
+        border-radius: 8px;
     }
 
-    /* Style dropdown menu options */
+    /* Style dropdown menu */
     div[data-baseweb="popover"] {
-        background-color: #ffffff !important; /* white dropdown menu */
-        color: #000000 !important;
+        background-color: #ffffff !important;
+        color: #3a2f1e !important;
+    }
+
+    /* Style buttons to use primaryColor */
+    button[kind="primary"] {
+        background-color: #6b4e16 !important;
+        color: white !important;
+        border-radius: 8px;
+    }
+
+    /* Success + Warning boxes to match theme */
+    .stSuccess {
+        background-color: #e8e3d9 !important;
+        border-left: 5px solid #6b4e16 !important;
+        color: #3a2f1e !important;
+    }
+    .stWarning {
+        background-color: #fff8e1 !important;
+        border-left: 5px solid #ffb300 !important;
+        color: #3a2f1e !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 
 # Load farmers and schemes
 with open("farmers.json", "r") as f:
@@ -82,11 +96,7 @@ st.json(farmer)
 
 # Show matching schemes
 st.subheader("✅ Eligible Schemes")
-matches = match_schemes(farmer)
+matches
 
-if matches:
-    for m in matches:
-        st.success(m)
-else:
-    st.warning("No matching schemes found.")
+
 
