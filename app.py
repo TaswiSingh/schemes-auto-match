@@ -26,7 +26,7 @@ st.markdown(
 
     /* Make dropdown (selectbox) white with black text */
     div[data-baseweb="select"] > div {
-        background-color:  #000000 !important;
+        background-color:  #ffffff !important;
         color: #000000 !important;  /* selected text color */
         border: 1px solid #d3d3d3;
         border-radius: 8px;
@@ -34,13 +34,13 @@ st.markdown(
 
     /* Dropdown menu background and text color */
     div[data-baseweb="popover"] {
-        background-color:  #000000 !important;
+        background-color:  #ffffff !important;
         color: #000000 !important;
     }
 
     /* Style farmer profile (st.json) container */
     .stJson {
-        background-color:  #000000 !important;
+        background-color:  #ffffff !important;
         color: #000000 !important;
         border-radius: 10px;
         padding: 15px;
@@ -104,6 +104,7 @@ if matches:
         st.success(m)
 else:
     st.warning("No matching schemes found.")
+
 
 
 
