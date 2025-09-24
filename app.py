@@ -9,7 +9,6 @@ st.set_page_config(
     layout="centered",  # or "wide"
 )
 
-# ✅ Custom CSS for theme + dropdown + farmer profile styling
 st.markdown(
     """
     <style>
@@ -47,10 +46,17 @@ st.markdown(
         padding: 15px;
         box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
     }
+
+    /* Make selectbox label text black */
+    label[data-baseweb="label"] {
+        color: #000000 !important;
+        font-weight: bold;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 # Load farmers and schemes
 with open("farmers.json", "r") as f:
     farmers = json.load(f)
@@ -92,6 +98,7 @@ if matches:
         st.success(m)
 else:
     st.warning("No matching schemes found.")
+
 
 
 
