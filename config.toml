@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#6b4e16"  # Warm brown tone
+backgroundColor = "#f2efdeff"
+secondaryBackgroundColor = "#ffffffff"
+textColor = "#3a2f1e"
+font = "sans serif"

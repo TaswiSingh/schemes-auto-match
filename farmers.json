@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Ravi",
+    "location": "Kerala",
+    "crop": "Rice",
+    "landSize": 2,
+    "irrigation": "Canal"
+  },
+  {
+    "id": 2,
+    "name": "Anita",
+    "location": "Kerala",
+    "crop": "Banana",
+    "landSize": 1,
+    "irrigation": "Rainfed"
+  },
+  {
+    "id": 3,
+    "name": "Manoj",
+    "location": "Kerala",
+    "crop": "Coconut",
+    "landSize": 4,
+    "irrigation": "Well"
+  },
+  {
+    "id": 4,
+    "name": "Lakshmi",
+    "location": "Kerala",
+    "crop": "Pepper",
+    "landSize": 1,
+    "irrigation": "Rainfed"
+  },
+  {
+    "id": 5,
+    "name": "Vijay",
+    "location": "Kerala",
+    "crop": "Tea",
+    "landSize": 3,
+    "irrigation": "Canal"
+  },
+  {
+    "id": 6,
+    "name": "Radha",
+    "location": "Kerala",
+    "crop": "Coffee",
+    "landSize": 2,
+    "irrigation": "Well"
+  },
+  {
+    "id": 7,
+    "name": "Suresh",
+    "location": "Kerala",
+    "crop": "Rubber",
+    "landSize": 5,
+    "irrigation": "Rainfed"
+  },
+  {
+    "id": 8,
+    "name": "Meena",
+    "location": "Kerala",
+    "crop": "Rice",
+    "landSize": 1,
+    "irrigation": "Canal"
+  },
+  {
+    "id": 9,
+    "name": "Prakash",
+    "location": "Kerala",
+    "crop": "Banana",
+    "landSize": 3,
+    "irrigation": "Well"
+  },
+  {
+    "id": 10,
+    "name": "Divya",
+    "location": "Kerala",
+    "crop": "Vegetables",
+    "landSize": 2,
+    "irrigation": "Canal"
+  }
+]
