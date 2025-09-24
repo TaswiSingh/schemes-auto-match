@@ -9,26 +9,48 @@ st.set_page_config(
     layout="centered",  # or "wide"
 )
 
-# Custom CSS for theme (works like config.toml)
+# ✅ Custom CSS for theme + dropdown + farmer profile styling
 st.markdown(
     """
     <style>
-    body {
+    /* Global Background and Text */
+    body, .stApp {
         background-color: #f2efdeff;
         color: #3a2f1e;
         font-family: 'sans-serif';
     }
-    .stApp {
-        background-color: #f2efdeff;
-    }
-    .stMarkdown, .stJson {
+
+    /* Ensure markdown and JSON text use the theme color */
+    .stMarkdown {
         color: #3a2f1e;
+    }
+
+    /* Make dropdown (selectbox) white with black text */
+    div[data-baseweb="select"] > div {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #d3d3d3;
+        border-radius: 8px;
+    }
+
+    /* Dropdown menu background and text color */
+    div[data-baseweb="popover"] {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    /* Style farmer profile (st.json) container */
+    .stJson {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 # Load farmers and schemes
 with open("farmers.json", "r") as f:
     farmers = json.load(f)
@@ -70,5 +92,6 @@ if matches:
         st.success(m)
 else:
     st.warning("No matching schemes found.")
+
 
 
